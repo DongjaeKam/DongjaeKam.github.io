@@ -63,44 +63,58 @@
       // 컨테이너를 만들고
       
       let cell =  document.querySelector('#result')
+
       
-      while ( cell.hasChildNodes() )
-      {
-          cell.removeChild( cell.firstChild );       
+      if( select_amount.value === "개수" ){
+
+          alert("개수를 선택하세요.");
+
       }
+      else {
 
-      for (let i = 0; i < Number(select_amount.value); i++) {
 
-        let ballContainer = document.createElement('div')
-        ballContainer.classList.add('ball-container')
-        // 공을 만들어서 =>  6개를 만들어서
-        let numbers = _.sampleSize(_.range(1, 46), 6)
-        console.log(numbers)
 
-        for (let i = 0; i < 6; i++) {
-          let ball = document.createElement('div')
-          ball.classList.add('ball')
-          ball.innerText = numbers[i]
-
-          let color_tmp = ''
-          if (numbers[i] > 40)
-            ball.classList.add('green')
-          else if (numbers[i] > 30)
-            ball.classList.add('gray')
-          else if (numbers[i] > 20)
-            ball.classList.add('red')
-          else if (numbers[i] > 10)
-            ball.classList.add('blue')
-          else
-            ball.classList.add('yellow')
-
-          // 컨테이너에 붙인다.
-          ballContainer.appendChild(ball)
-          // 컨테이너를 결과 영역에 붙인다.  
+        while (cell.hasChildNodes()) {
+          cell.removeChild(cell.firstChild);
         }
 
-        let result = document.querySelector('#result')
-        result.appendChild(ballContainer)
+
+
+
+        for (let i = 0; i < Number(select_amount.value); i++) {
+
+          let ballContainer = document.createElement('div')
+          ballContainer.classList.add('ball-container')
+          // 공을 만들어서 =>  6개를 만들어서
+          let numbers = _.sampleSize(_.range(1, 46), 6)
+          console.log(numbers)
+
+          for (let i = 0; i < 6; i++) {
+            let ball = document.createElement('div')
+            ball.classList.add('ball')
+            ball.innerText = numbers[i]
+
+            let color_tmp = ''
+            if (numbers[i] > 40)
+              ball.classList.add('green')
+            else if (numbers[i] > 30)
+              ball.classList.add('gray')
+            else if (numbers[i] > 20)
+              ball.classList.add('red')
+            else if (numbers[i] > 10)
+              ball.classList.add('blue')
+            else
+              ball.classList.add('yellow')
+
+            // 컨테이너에 붙인다.
+            ballContainer.appendChild(ball)
+            // 컨테이너를 결과 영역에 붙인다.  
+          }
+
+          let result = document.querySelector('#result')
+          result.appendChild(ballContainer)
+
+        }
       }
     })
 
